@@ -1,0 +1,17 @@
+.mood-container {
+    border: 3px solid white;
+    border-radius: 2px;
+    display: flex;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+.mood-box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}

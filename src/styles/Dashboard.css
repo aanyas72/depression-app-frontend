@@ -1,0 +1,40 @@
+.dashboard {
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+
+.dashboard-name {
+    font-size: 50px;
+    font-weight: bolder;
+    margin-bottom: 40px;
+}
+
+.add-new {
+    font-weight: bolder;
+    width: 55px;
+    height: 55px;
+}
+
+.boxes {
+    display: flex;
+    gap: 20px;
+}
+
+.box {
+    outline: white solid 3px;
+    padding: 20px;
+    border-radius: 2px;
+    width: 50%;
+    height: 150px;
+}
+
+.box-title {
+    margin-bottom: 20px;
+}
+
+.icon {
+    color: white;
+    background-color: transparent;
+}

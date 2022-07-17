@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  
+    margin: 0;
+    padding: 16px;
+    background-color: #161b22;
+    color: white;
+    height: 60px;
+  }
+  
+  .dropdown {
+    margin-left: auto;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown, .user-logo, .down-arrow {
+    background-color: transparent;
+  }
+  
+  .user-logo, .down-arrow {
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    z-index: 1;
+    padding: 10px;
+    background-color: #1C2128;
+    border-radius: 5px;
+    border: 1px #2B3037 solid;
+    text-align: center;
+  }
+  
+  .dropdown-menu div, .dropdown-menu b{
+    display: block;
+    background-color: transparent;
+  }
