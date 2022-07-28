@@ -28,12 +28,12 @@ const Header = () => {
                 {/* <b>{AuthenticationService.getLoggedInUserName()}</b> */}
               </div>
               <div className="divider"></div>
-              {/* <Link
+              <Link
               to="/logout"
-              style={{ backgroundColor: "transparent", fontWeight: "bold" }}
-            > */}
+              style={{ backgroundColor: "transparent", fontWeight: "bold", color: "cornflowerblue" }}
+            >
               Logout
-              {/* </Link>  */}
+              </Link> 
             </div>
           )}
         </div>

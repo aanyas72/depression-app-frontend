@@ -1,8 +1,9 @@
-.mood-container {
+.box-container {
     border: 3px solid white;
     border-radius: 2px;
     display: flex;
-    width: 90%;
+    flex-wrap: wrap;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     justify-content: space-around;
@@ -10,8 +11,12 @@
     color: white;
 }
 
-.mood-box {
+.one-box {
     margin-top: 20px;
     margin-bottom: 20px;
     cursor: pointer;
+}
+
+h3 {
+    margin-bottom: 20px;
 }

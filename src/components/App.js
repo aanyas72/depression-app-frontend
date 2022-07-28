@@ -1,34 +1,36 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import '../styles/App.css';
 import AIDiag from "./AIDiag";
 import MonthlyCalendar from "./MonthlyCalendar";
 import Dashboard from './Dashboard.js'
 import Journal from "./Journal";
+import Login from "./Login";
+import SignUp from "./SignUp";
+import Logout from "./Logout";
 
 const App = () => {
   const [day, setDay] = useState();
-  
-  var today = new Date();
-    var dd = String(today.getDate()).padStart(2, "0");
-    var mm = String(today.getMonth() + 1).padStart(2, "0");
-    var yyyy = today.getFullYear();
 
-    today = mm + "/" + dd + "/" + yyyy;
+  const convertDate = (day) => {
+    var dd = String(day.getDate()).padStart(2, "0");
+    var mm = String(day.getMonth() + 1).padStart(2, "0");
+    var yyyy = day.getFullYear();
+
+    return mm + "/" + dd + "/" + yyyy;
+  }
 
   return (
     <Router>
       <Routes>
         <Route exact path="/" element={<Dashboard />} />
-      <Route path="/journal" element={<Journal />} />
-      <Route path="/calendar" element={<MonthlyCalendar />} />
-      <Route path="/diagnosis" element={<AIDiag />} />
-        {/* <Route
-          exact
-          path="/"
-          element={<Journal day={today} />}
-        /> */}
+        <Route path="/journal" element={<Journal day={day} />} />
+        <Route path="/calendar" element={<MonthlyCalendar setDay={setDay} />} />
+        <Route path="/diagnosis" element={<AIDiag />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/logout" element={<Logout />}></Route>
       </Routes>
     </Router>
   );
