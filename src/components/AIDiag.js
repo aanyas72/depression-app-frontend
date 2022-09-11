@@ -1,17 +1,33 @@
-// import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
+import AuthenticationService from "../services/AuthenticationService";
 import Header from "./Header";
 
 const AIDiag = () => {
-  // const [date, setDate] = useState();
-
   const location = useLocation();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!AuthenticationService.isUserLoggedIn()) {
+      navigate("/login");
+    }
+  });
 
   return (
     <>
-      <Header />
-      <h1>Diagnostic for {location.state.date}</h1>
+      {AuthenticationService.isUserLoggedIn() ? (
+        <>
+          <Header />
+          <h1>
+            Diagnostic for{" "}
+            {location.state.date != null ? location.state.date : ""}
+          </h1>
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 }

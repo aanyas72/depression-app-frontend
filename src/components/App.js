@@ -19,7 +19,7 @@ const App = () => {
         <Route path="/diagnosis" element={<AIDiag />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/logout" element={<Logout />}></Route>
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </Router>
   );

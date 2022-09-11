@@ -1,7 +1,9 @@
 import "../styles/LoginAndSignUp.css";
+import AuthenticationService from "../services/AuthenticationService";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -9,9 +11,27 @@ const Login = () => {
   const [loginFailed, setLoginFailed] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("form submitted");
+    
+    try {
+      await AuthenticationService.executeBasicAuthenticationService(
+        email,
+        password
+      );
+      AuthenticationService.registerSuccessfulLogin(email, password);
+      AuthenticationService.registerUserDetails(
+        await AuthenticationService.getUserDetails(email)
+      );
+      setShowSuccessMessage(true);
+      navigate("/");
+    } catch {
+      setLoginFailed(true);
+      setEmail("");
+      setPassword("");
+    }
   };
 
   return (
@@ -32,12 +52,12 @@ const Login = () => {
       )}
 
       <form className="login area" onSubmit={handleSubmit}>
-        <div className="label">Username</div>
+        <div className="label">Email</div>
         <input
           className="input"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          autoComplete="username"
+          autoComplete="email"
         ></input>
         <div className="label">Password</div>
         <input

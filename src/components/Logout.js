@@ -1,4 +1,7 @@
+import AuthenticationService from "../services/AuthenticationService";
+
 const Logout = () => {
+  AuthenticationService.logout();
     return(
       <div
         style={{
